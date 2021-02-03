@@ -1,0 +1,23 @@
+
+
+<form action="{% url 'polls:searching' %}" method="post">
+{% csrf_token %}
+<input type="text"  autocomplete="off"  name="search_keyword" id="search_keyword" value="" />
+
+<input type="submit" value="searching" />
+
+</form>
+
+
+{% if all_host_list %}
+    <ul>
+    {% for host in all_host_list %}
+
+        <li><a href="/polls/{{ host.id }}/">{{host}}</a></li>
+        <br>
+        
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hosts are available.</p>
+{% endif %}
