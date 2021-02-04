@@ -14,6 +14,22 @@ from django import forms
 # polls/search.html : 데이터 검색 페이지
 
 
+def test(request):
+
+
+    return render(request, 'polls/test.html')
+
+
+def search(request):
+
+    all_host_list = Host_info.objects.all()
+    context = {'all_host_list': all_host_list}
+    return render(request, 'polls/search.html', context)
+
+def base(request):
+    
+    return render(request, 'polls/base.html')
+
 def index(request):
     
     all_host_list = Host_info.objects.all()
