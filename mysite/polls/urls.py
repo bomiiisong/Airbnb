@@ -7,7 +7,8 @@ urlpatterns = [
     path('', views.index, name='index'),    # /polls/
     path('<int:host_info_id>/', views.detail, name='detail'),       # /polls/5/
     path('searching/' , views.searching , name = 'searching'),
-
+    path('searching/test' , views.test , name = 'test'),
+    
     path('base/' , views.base , name = 'base'),
     path('search/' , views.search , name = 'search'),
     path('search/test' , views.test , name = 'test'),

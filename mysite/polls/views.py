@@ -42,8 +42,9 @@ def detail(request, host_info_id):
 
 def searching(request):
     search_keyword = request.POST['search_keyword']
-    search_result_host_info = get_object_or_404(Host_info, host_region = search_keyword)
-    
+    #search_result_host_info = get_object_or_404(Host_info, host_name = search_keyword)
+    search_result_host_info = Host_info.objects.all().filter(host_name__icontains=search_keyword)
+    #search_result_host_info = Host_info.objects.all().filter(host__icontains=search_keyword)
     return render(request, 'polls/searching.html', {'search_result_host_info': search_result_host_info})
 
 # def results(request, question_id):
