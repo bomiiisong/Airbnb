@@ -71,11 +71,12 @@ class Info_View(View):
             NAME = []
             X = []
             Y = []
-            for acmd in search_result:
-                NAME.append(acmd.room_name)
-                X.append(acmd.latitude)
-                Y.append(acmd.longitude)        
-            save_Map(NAME , X, Y)
+            if search_result:
+                for acmd in search_result:
+                    NAME.append(acmd.room_name)
+                    X.append(acmd.latitude)
+                    Y.append(acmd.longitude)        
+                save_Map(NAME , X, Y)
 
             return render(request, 'info/searching.html', {'search_result': search_result , 'search_keyword' : search_keyword , 'page_range' : page_range})
 
