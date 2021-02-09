@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0a38ab9b1c40474aa27f79b17b0610bb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_0a38ab9b1c40474aa27f79b17b0610bb" ></div>
+        
+</body>
+<script>    
+    
+            var map_0a38ab9b1c40474aa27f79b17b0610bb = L.map(
+                "map_0a38ab9b1c40474aa27f79b17b0610bb",
+                {
+                    center: [37.54099694999999, 127.57072435],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3f00531506244e539deb9442e8e1e1f1 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_0a38ab9b1c40474aa27f79b17b0610bb);
+        
+    
+            var marker_cd20a380c2754ed38bf1789cadcb9a83 = L.marker(
+                [37.589085600000004, 127.4548259],
+                {"color": "red", "radius": 10}
+            ).addTo(map_0a38ab9b1c40474aa27f79b17b0610bb);
+        
+    
+        var popup_3ad0851037364ae9b24a1e700695891b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3fe9033df2224e4f81c5336f527597d0 = $(`<div id="html_3fe9033df2224e4f81c5336f527597d0" style="width: 100.0%; height: 100.0%;">산너머펜션</div>`)[0];
+            popup_3ad0851037364ae9b24a1e700695891b.setContent(html_3fe9033df2224e4f81c5336f527597d0);
+        
+
+        marker_cd20a380c2754ed38bf1789cadcb9a83.bindPopup(popup_3ad0851037364ae9b24a1e700695891b)
+        ;
+
+        
+    
+    
+            var marker_7755cd53d4204068b205d7e71c39b5a6 = L.marker(
+                [37.534219799999995, 127.74794740000002],
+                {"color": "red", "radius": 10}
+            ).addTo(map_0a38ab9b1c40474aa27f79b17b0610bb);
+        
+    
+        var popup_084197e09817450f8969cff31ff8ace8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b94809cac4eb4922b5a01541284f2808 = $(`<div id="html_b94809cac4eb4922b5a01541284f2808" style="width: 100.0%; height: 100.0%;">양평 맑은물소리 펜션</div>`)[0];
+            popup_084197e09817450f8969cff31ff8ace8.setContent(html_b94809cac4eb4922b5a01541284f2808);
+        
+
+        marker_7755cd53d4204068b205d7e71c39b5a6.bindPopup(popup_084197e09817450f8969cff31ff8ace8)
+        ;
+
+        
+    
+    
+            var marker_aefd4a187eec461d97d01a879a314ee3 = L.marker(
+                [37.4489286, 127.6916471],
+                {"color": "red", "radius": 10}
+            ).addTo(map_0a38ab9b1c40474aa27f79b17b0610bb);
+        
+    
+        var popup_3d88200c254449a4bdba7a61d0357542 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0fa77f7ed4064fe2b4debb6252d89a5a = $(`<div id="html_0fa77f7ed4064fe2b4debb6252d89a5a" style="width: 100.0%; height: 100.0%;">아침정원 펜션</div>`)[0];
+            popup_3d88200c254449a4bdba7a61d0357542.setContent(html_0fa77f7ed4064fe2b4debb6252d89a5a);
+        
+
+        marker_aefd4a187eec461d97d01a879a314ee3.bindPopup(popup_3d88200c254449a4bdba7a61d0357542)
+        ;
+
+        
+    
+    
+            var marker_855b19c1315741e2a0ff86e4aafdc32a = L.marker(
+                [37.59175379999999, 127.38847700000001],
+                {"color": "red", "radius": 10}
+            ).addTo(map_0a38ab9b1c40474aa27f79b17b0610bb);
+        
+    
+        var popup_785d7cedab68446c9f55c0c6e4acad3a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e56061c9a63d4e8fbe24ecb198529e27 = $(`<div id="html_e56061c9a63d4e8fbe24ecb198529e27" style="width: 100.0%; height: 100.0%;">B612</div>`)[0];
+            popup_785d7cedab68446c9f55c0c6e4acad3a.setContent(html_e56061c9a63d4e8fbe24ecb198529e27);
+        
+
+        marker_855b19c1315741e2a0ff86e4aafdc32a.bindPopup(popup_785d7cedab68446c9f55c0c6e4acad3a)
+        ;
+
+        
+    
+</script>
