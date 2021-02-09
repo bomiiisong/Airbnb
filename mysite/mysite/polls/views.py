@@ -1,13 +1,18 @@
 from django.shortcuts import render
-
+from .forms import QuestionForm, AnswerForm
 # Create your views here.
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django import forms
-from polls.models import Accomodation
 from django.views.generic import View
 from django.template import loader
+from django.core.paginator import Paginator
+from django.db.models import Q, Count
+from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
+from polls.models import Accomodation
+from .models import Question
 ## html 구성
 # polls/index.html : 메인페이지
 # polls/input.html : 데이터 입력 페이지
@@ -21,7 +26,7 @@ from django.db.models import Q
 
 # 나중에 지울꺼 지금은 메인페이지 대신
 def index(request):
-    
+
     return render(request, 'index.html')
 
 # 나중에 지울꺼 지금은 메인페이지 대신
@@ -42,7 +47,60 @@ def save_Map(NAME, Y, X):
     for i in range(len(NAME)):
         folium.Marker((Y[i],X[i]) , radius = 10 , color = "red" , popup = NAME[i]).add_to(map_searching)
     map_searching.save('polls/templates/info/map.html')
-    
+
+def index2(request):
+        """
+        pybo 목록 출력
+        """
+
+        question_list = Question.objects.order_by('-create_date')
+        context = {'question_list': question_list}
+        return render(request, 'polls/question_list.html', context)
+
+def detail2(request, question_id):
+    """
+    pybo 내용 출력
+    """
+    question = get_object_or_404(Question, pk=question_id)
+    context = {'question': question}
+    return render(request, 'polls/question_detail.html', context)
+
+def answer_create(request, question_id):
+    """
+    pybo 답변등록
+    """
+    question = get_object_or_404(Question, pk=question_id)
+    # ---------------------------------- [edit] ---------------------------------- #
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.create_date = timezone.now()
+            answer.question = question
+            answer.save()
+            return redirect('pybo:detail', question_id=question.id)
+    else:
+        form = AnswerForm()
+    context = {'question': question, 'form': form}
+    return render(request, 'polls/question_detail.html', context)
+
+def question_create(request):
+    """
+    pybo 질문등록
+    """
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.create_date = timezone.now()
+            question.save()
+            return redirect('polls:index')
+    else:
+        form = QuestionForm()
+    context = {'form': form}
+    return render(request, 'polls/question_form.html', context)
+
+
 
 
 
