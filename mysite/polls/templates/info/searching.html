@@ -66,13 +66,12 @@
     {% endfor %}
 
 
-    <iframe src="map" title="내용" width="49.55%" height="750px" style="position: fixed;  top:95px;  right:5px; z-index: 2;"></iframe>
-    </div>
+    <iframe src="map" title="내용" width="49.55%" height="750px" style="position: fixed;  top:100px;  right:5px; z-index: 2;"></iframe>
     
+</div>    
 </div>
 
 
-    
     {% if search_result|length  == 0 %}
         <div class=container style = "font-size: 170%; float:left; margin-left:300px; color: black;">
             <br>
@@ -86,8 +85,17 @@
     {% endif %}
 
 
-
-
+<!-- Paging -->
+<div class=container style="align-content: center; margin-top:50px;">
+<nav aria-label= "Page Navigaton" style = "width:150%;">
+    <ul class = "pagination">
+        {% for page in page_range %}
+        <li class = "page-item"><a class ="page-link" 
+            href = "{% url 'polls:Info_searching'%}?search_keyword={{search_keyword}}&&page={{page}}">{{page}}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+</div>
 
 
 

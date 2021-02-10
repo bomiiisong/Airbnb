@@ -33,6 +33,10 @@ def base(request):
 # 맵 정보를 HTML 로 저장
 def save_Map(NAME, Y, X):
     save_dir = "./"
+    if len(NAME) == 0:
+        map_searching = folium.Map(location = [2000 , 2000], zoom_start = 20)
+        map_searching.save('polls/templates/info/map.html')
+        return 
 
     df = pd.DataFrame({"X" : X , "Y" : Y})
     df["X"] = pd.to_numeric(df["X"])
@@ -71,12 +75,12 @@ class Info_View(View):
             NAME = []
             X = []
             Y = []
-            if search_result:
-                for acmd in search_result:
-                    NAME.append(acmd.room_name)
-                    X.append(acmd.latitude)
-                    Y.append(acmd.longitude)        
-                save_Map(NAME , X, Y)
+           
+            for acmd in search_result:
+                NAME.append(acmd.room_name)
+                X.append(acmd.latitude)
+                Y.append(acmd.longitude)        
+            save_Map(NAME , X, Y)
 
             return render(request, 'info/searching.html', {'search_result': search_result , 'search_keyword' : search_keyword , 'page_range' : page_range})
 
