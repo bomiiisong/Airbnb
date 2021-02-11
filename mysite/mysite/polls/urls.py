@@ -19,8 +19,8 @@ urlpatterns = [
 
 
     ## 커뮤니티 게시판 URL
-    path('pybo', views.index2 ,name = 'question_list'),
-    path('pybo/detail/<int:question_id>', views.detail2 ,name = 'question_detail'),
+    path('polls', views.index2 ,name = 'question_list'),
+    path('polls/detail/<int:question_id>', views.detail2 ,name = 'question_detail'),
     path('', views.index),
 
     path('answer/create/<int:question_id>/', views.answer_create, name='answer_create'),

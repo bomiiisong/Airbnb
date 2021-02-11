@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18c9a016-03c0-42b6-beb7-8dee0b2ab80c" name="Default Changelist" comment="second">
-      <change afterPath="$PROJECT_DIR$/mysite/polls/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/templates/base1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/base1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/templates/info/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/info/map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/polls/templates/polls/question_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/templates/polls/question_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/polls/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/polls/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +35,6 @@
       </branch-storage>
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1nulqr20lI6pneG3dHM5DNNmq3J" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

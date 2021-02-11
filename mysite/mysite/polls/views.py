@@ -78,7 +78,7 @@ def answer_create(request, question_id):
             answer.create_date = timezone.now()
             answer.question = question
             answer.save()
-            return redirect('pybo:detail', question_id=question.id)
+            return redirect('polls:detail2', question_id=question.id)
     else:
         form = AnswerForm()
     context = {'question': question, 'form': form}
@@ -94,7 +94,7 @@ def question_create(request):
             question = form.save(commit=False)
             question.create_date = timezone.now()
             question.save()
-            return redirect('polls:index')
+            return redirect('polls:index2')
     else:
         form = QuestionForm()
     context = {'form': form}
