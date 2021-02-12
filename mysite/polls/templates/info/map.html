@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_aae8ecf76afe48728501f37abfe26739 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_aae8ecf76afe48728501f37abfe26739" ></div>
+        
+</body>
+<script>    
+    
+            var map_aae8ecf76afe48728501f37abfe26739 = L.map(
+                "map_aae8ecf76afe48728501f37abfe26739",
+                {
+                    center: [37.544973133333336, 126.91326106666666],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f358ea112a5c4bc2b6429d2ce9647276 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+            var marker_497eede79b924cf3942061d7800e2a42 = L.marker(
+                [37.51093669999999, 127.08086170000001],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_1122084dd45f4284a5f77784a012423e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a87e7b16e33c4813b5bae3c2620e7dd6 = $(`<div id="html_a87e7b16e33c4813b5bae3c2620e7dd6" style="width: 100.0%; height: 100.0%;">신천 NU</div>`)[0];
+            popup_1122084dd45f4284a5f77784a012423e.setContent(html_a87e7b16e33c4813b5bae3c2620e7dd6);
+        
+
+        marker_497eede79b924cf3942061d7800e2a42.bindPopup(popup_1122084dd45f4284a5f77784a012423e)
+        ;
+
+        
+    
+    
+            var marker_00891a12a4554f2caac729f946d8cad9 = L.marker(
+                [37.5250162, 126.85781840000001],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_9210e66d1e9e459f890aa3e29fb60ebd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_097ae01dfe0d42c89b7ea239d352f948 = $(`<div id="html_097ae01dfe0d42c89b7ea239d352f948" style="width: 100.0%; height: 100.0%;">목동 메종</div>`)[0];
+            popup_9210e66d1e9e459f890aa3e29fb60ebd.setContent(html_097ae01dfe0d42c89b7ea239d352f948);
+        
+
+        marker_00891a12a4554f2caac729f946d8cad9.bindPopup(popup_9210e66d1e9e459f890aa3e29fb60ebd)
+        ;
+
+        
+    
+    
+            var marker_8e7f68fd765b4d66af092d0c6feddb15 = L.marker(
+                [37.5497351, 126.8483505],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_a591828857874176adee49737ce589c3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d6596805448945d4825f39dfe8b396b3 = $(`<div id="html_d6596805448945d4825f39dfe8b396b3" style="width: 100.0%; height: 100.0%;">화곡 샤르망-강서구청</div>`)[0];
+            popup_a591828857874176adee49737ce589c3.setContent(html_d6596805448945d4825f39dfe8b396b3);
+        
+
+        marker_8e7f68fd765b4d66af092d0c6feddb15.bindPopup(popup_a591828857874176adee49737ce589c3)
+        ;
+
+        
+    
+    
+            var marker_8a6b4b791dd64fe49de9cdf21deaf788 = L.marker(
+                [37.5300734, 126.8412253],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_5253a1c83d0646179e8cb9724cd9b2e7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3c7af87173454340b7b1bc2b749a4802 = $(`<div id="html_3c7af87173454340b7b1bc2b749a4802" style="width: 100.0%; height: 100.0%;">화곡 앤</div>`)[0];
+            popup_5253a1c83d0646179e8cb9724cd9b2e7.setContent(html_3c7af87173454340b7b1bc2b749a4802);
+        
+
+        marker_8a6b4b791dd64fe49de9cdf21deaf788.bindPopup(popup_5253a1c83d0646179e8cb9724cd9b2e7)
+        ;
+
+        
+    
+    
+            var marker_2c84432f0c7a435c9736f0c90e1b943d = L.marker(
+                [37.5764888, 126.8307466],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_cbd818b2ca154b69becd26ccf587c0ea = L.popup({"maxWidth": "100%"});
+
+        
+            var html_214b2b15668e450ea6dba520a109bd02 = $(`<div id="html_214b2b15668e450ea6dba520a109bd02" style="width: 100.0%; height: 100.0%;">호텔 엠펠리체</div>`)[0];
+            popup_cbd818b2ca154b69becd26ccf587c0ea.setContent(html_214b2b15668e450ea6dba520a109bd02);
+        
+
+        marker_2c84432f0c7a435c9736f0c90e1b943d.bindPopup(popup_cbd818b2ca154b69becd26ccf587c0ea)
+        ;
+
+        
+    
+    
+            var marker_b909bbc536f8428c9bfa0cb9e3c2c243 = L.marker(
+                [37.5544309, 126.97468590000001],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_898ecbc9cb374bb8a9b943c7d576c51b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_79531081caf1408a9de84d45661638f3 = $(`<div id="html_79531081caf1408a9de84d45661638f3" style="width: 100.0%; height: 100.0%;">서울역 원미닛 게스트하우스</div>`)[0];
+            popup_898ecbc9cb374bb8a9b943c7d576c51b.setContent(html_79531081caf1408a9de84d45661638f3);
+        
+
+        marker_b909bbc536f8428c9bfa0cb9e3c2c243.bindPopup(popup_898ecbc9cb374bb8a9b943c7d576c51b)
+        ;
+
+        
+    
+    
+            var marker_0339c074eaf74204ad122ed1a82b351a = L.marker(
+                [37.5495315, 126.9206446],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_9945701068e24beca3d5ea2449f20ffb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7c8c15eca0ce40859716ea6cb1b4e7c1 = $(`<div id="html_7c8c15eca0ce40859716ea6cb1b4e7c1" style="width: 100.0%; height: 100.0%;">홍대 유(서교) 여성전용</div>`)[0];
+            popup_9945701068e24beca3d5ea2449f20ffb.setContent(html_7c8c15eca0ce40859716ea6cb1b4e7c1);
+        
+
+        marker_0339c074eaf74204ad122ed1a82b351a.bindPopup(popup_9945701068e24beca3d5ea2449f20ffb)
+        ;
+
+        
+    
+    
+            var marker_2259fa014fd94656b196cc9f4c3a6cba = L.marker(
+                [37.5541761, 126.9375064],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_cce14646ced840ecb30cafb9ba3a6c37 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cebffb4575c6409b8518237fe66a04b6 = $(`<div id="html_cebffb4575c6409b8518237fe66a04b6" style="width: 100.0%; height: 100.0%;">신촌 호스텔 가온</div>`)[0];
+            popup_cce14646ced840ecb30cafb9ba3a6c37.setContent(html_cebffb4575c6409b8518237fe66a04b6);
+        
+
+        marker_2259fa014fd94656b196cc9f4c3a6cba.bindPopup(popup_cce14646ced840ecb30cafb9ba3a6c37)
+        ;
+
+        
+    
+    
+            var marker_5b234687067b49938e8ab0a0ff480ab1 = L.marker(
+                [37.5543695, 126.9275102],
+                {"color": "red", "radius": 10}
+            ).addTo(map_aae8ecf76afe48728501f37abfe26739);
+        
+    
+        var popup_376efd9befd44d88ab53a554ad625457 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_21c88134269f4cdd9c7969aef56255a5 = $(`<div id="html_21c88134269f4cdd9c7969aef56255a5" style="width: 100.0%; height: 100.0%;">홍대 준 게스트하우스</div>`)[0];
+            popup_376efd9befd44d88ab53a554ad625457.setContent(html_21c88134269f4cdd9c7969aef56255a5);
+        
+
+        marker_5b234687067b49938e8ab0a0ff480ab1.bindPopup(popup_376efd9befd44d88ab53a554ad625457)
+        ;
+
+        
+    
+</script>
