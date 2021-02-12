@@ -1,87 +1,211 @@
 
-{% extends "base.html" %}
+    <!-- Bootstrap core CSS -->
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 
-{% block sidebar %}
-<div id = "content_left" style = "border: 1px 
-    solid blue; padding: 10px;  float: left; width: 80%" >
+      div[class^="col"] { padding: 2px; border: 0px solid #dadada; background-color: #FAFAFA; }
+    </style>
 
-</div>
-{% endblock%}
-
-{% block content %}
-{% load static %}
-<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/carousel.css' %}" rel="stylesheet"> 
-
-
-    <div class = "container-fluid" style="margin-left: 20px; margin-top : 40px">
-        <div class="col-4 style=float: left;"> 
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style = "width: 100%; height: 100%; float: left;">
-          <ol class="carousel-indicators">
-            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <svg class="bd-placeholder-img" width="50%" height="50%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"> 
-                <rect width="100%" height="100%" fill="#777"/>   
-              </svg>
-              <img src = {{acmd.image_link}} style = "width: 60%; height:100%">
-            </div>
-      
-            <div class="carousel-item">
-              <svg class="bd-placeholder-img" width="50%" height="50%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-              <img src = {{acmd.img_link_3}} style = "width: 60%; height:100%">
-            </div>
-            
-            <div class="carousel-item">
-              <svg class="bd-placeholder-img" width="50%" height="50%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-              <img src = {{acmd.img_link_4}}  style = "width: 60%; height:100%">
-            </div>
-          </div>
-      
-          <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </a>
-        </div>
-      </div>
-      
-      <div class="col-4" style="float:left; margin-left: 5px;"> 
-        <div class="card" style = "border-width: 1px; border-color:rgb(60, 104, 185); height: 507px;"> 
-          <div style = "margin-left: 15px; margin-right: 15px; margin-top: 25px; margin-bottom: 25px;">
-          <br>
-          <h5 class ="card-title" style = "color: rgb(9, 0, 10); font-size: 250%;"> <strong> {{acmd}} </strong> </h5>  
-          <br>
-           <p class="card-text" style="font-size: 170%">{{acmd.location}} </p>  
-          <br>
-      
-          <div style="font-size : 150%;">
-            {{acmd.owner_comment}} 
-          </div>
-      
-        </div>
-        <br>
-          <br>
-        
-          </div> </div> 
-        
-        </div>
-      
-        <script src="{% static 'css/bootstrap.bundle.min.js' %}"></script>
+    <!-- Custom styles for this template -->
+    
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
     
 
-      
-      
+  {% load static %}
+
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/carousel.css' %}" rel="stylesheet"> 
+  <script src="{% static 'css/bootstrap.bundle.min.js' %}"></script>
+
+
+
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+           
+            <a class="navbar-brand" href="{% url 'polls:base' %}" style="font-size: 200%; margin-left : 20px;  margin-right: 20px;"> <strong> Airbnb </strong></a> 
+            &nbsp  &nbsp
+            <a class="navbar-brand" href="#">홈</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            &nbsp  &nbsp
+            <a class="navbar-brand" href="#">게시판</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            &nbsp  &nbsp
+            <a class="navbar-brand" href="#" style = "top:50px;">
           
+              <form class="d-flex"  style = "top:50px;" >
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </a>
+                
+          </nav>
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+<div class="row">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="border: 10px;  width : 600px; height : 450px; margin-left:50px" >
+    <ol class="carousel-indicators">
+      <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="4"></li>
+    </ol>
+  
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src = {{acmd.image_link}} style = "height : 450px; width : 600px"  >
+      </div>
+  
+      <div class="carousel-item">
+        <img src = {{acmd.img_link_3}}  style = "height : 450px; width : 600px"  >
+        </div>
+  
+  
+      <div class="carousel-item">
+        <img src = {{acmd.img_link_4}}  style = "height : 450px; width : 600px"  >
+  
+      </div>
+  
+      <div class="carousel-item">
+        <img src = {{acmd.img_link_5}} style ="height : 450px; width : 600px"  >
+  
+      </div>
+      
+    </div>
+  
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev"; style = "margin-left: 10px;">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next"style = "margin-right: 10px;">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  
+    <div class="col-4" style="float:left; margin-left: 5px;"> 
+      <div class="card" style = "border-width: 1px; border-color:rgb(60, 104, 185); height: 450px; width : 500px"> 
+        <div style = "margin-left: 15px; margin-right: 15px; margin-top: 25px; margin-bottom: 25px;">
+        <br>
+        <h5 class ="card-title" style = "color: rgb(9, 0, 10); font-size: 200%;"> <strong> 아름다운 해변가 호텔 </strong> </h5>  
+        <br>
+         <p class="card-text" style="font-size: 150%">몰디브의 어딘가</p>  
+        <br>
+    
+        <div style="font-size : 100%;">
+          삼성역 코엑스, 컨벤션 센터, 코엑스몰, 카지노, 영화관, 면세점과 바로 연결되어있어 쇼핑과 문화를 한 번에 즐기실 수 있습니다
+          도심의 풍경을 즐기고 싶은 고객을 위해 한강과 서울의 야경을 한눈에 담을 수 있는 656개의 객실, 뷔페, 레스토랑이 준비되어 있습니다
+        </div>
+    
+      </div>
+      <br>
+        <br>
+        </div> </div> 
+      </div>
 
 
- {% endblock %}
+
+      <br>
+<br>
+
+<div class="container-fluid" style = "margin-top: 40px; margin-left:80px; width: 50%; height : 60%;">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <h2>REVIEW</h2>
+      <p>DETAIL REBIEW</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <h2>REVIEW</h2>
+      <p>DETAIL REBIEW</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <h2>REVIEW</h2>
+      <p>DETAIL REBIEW</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+
+  <!-- START THE FEATURETTES -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading"> ROOM NAME <span class="text-muted"></span></h2>
+      <p class="lead"> ROOM DESCRIPTION</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading"> ROOM NAME <span class="text-muted"></span></h2>
+      <p class="lead"> ROOM DESCRIPTION</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading"> ROOM NAME <span class="text-muted"></span></h2>
+      <p class="lead"> ROOM DESCRIPTION</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+    </div>
+  </div>
+
+
+
+  <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->
+
+<iframe src="{% url 'polls:Info_map' %}" title="내용" width="35.00%" height="500px" 
+style="position: fixed;  top:160px;  right:50px; z-index: 2;"></iframe>
+
+
 
 
