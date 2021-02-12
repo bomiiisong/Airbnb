@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from .forms import QuestionForm, AnswerForm
+
 # Create your views here.
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
@@ -9,10 +8,14 @@ from django.views.generic import View
 from django.template import loader
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
-from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from polls.models import Accomodation
+from django.contrib.auth import authenticate, login
+from polls.forms import UserForm
+from .forms import QuestionForm, AnswerForm
 from .models import Question
+from django.contrib.auth.decorators import login_required
+
 ## html 구성
 # polls/index.html : 메인페이지
 # polls/input.html : 데이터 입력 페이지
@@ -22,11 +25,11 @@ import pandas as pd
 import folium
 import math
 from django.db.models import Q
-
+from django.core.paginator import Paginator
 
 # 나중에 지울꺼 지금은 메인페이지 대신
 def index(request):
-
+    
     return render(request, 'index.html')
 
 # 나중에 지울꺼 지금은 메인페이지 대신
@@ -38,6 +41,10 @@ def base(request):
 # 맵 정보를 HTML 로 저장
 def save_Map(NAME, Y, X):
     save_dir = "./"
+    if len(NAME) == 0:
+        map_searching = folium.Map(location = [2000 , 2000], zoom_start = 20)
+        map_searching.save('polls/templates/info/map.html')
+        return 
 
     df = pd.DataFrame({"X" : X , "Y" : Y})
     df["X"] = pd.to_numeric(df["X"])
@@ -47,60 +54,7 @@ def save_Map(NAME, Y, X):
     for i in range(len(NAME)):
         folium.Marker((Y[i],X[i]) , radius = 10 , color = "red" , popup = NAME[i]).add_to(map_searching)
     map_searching.save('polls/templates/info/map.html')
-
-def index2(request):
-        """
-        pybo 목록 출력
-        """
-
-        question_list = Question.objects.order_by('-create_date')
-        context = {'question_list': question_list}
-        return render(request, 'polls/question_list.html', context)
-
-def detail2(request, question_id):
-    """
-    pybo 내용 출력
-    """
-    question = get_object_or_404(Question, pk=question_id)
-    context = {'question': question}
-    return render(request, 'polls/question_detail.html', context)
-
-def answer_create(request, question_id):
-    """
-    pybo 답변등록
-    """
-    question = get_object_or_404(Question, pk=question_id)
-    # ---------------------------------- [edit] ---------------------------------- #
-    if request.method == "POST":
-        form = AnswerForm(request.POST)
-        if form.is_valid():
-            answer = form.save(commit=False)
-            answer.create_date = timezone.now()
-            answer.question = question
-            answer.save()
-            return redirect('polls:detail2', question_id=question.id)
-    else:
-        form = AnswerForm()
-    context = {'question': question, 'form': form}
-    return render(request, 'polls/question_detail.html', context)
-
-def question_create(request):
-    """
-    pybo 질문등록
-    """
-    if request.method == 'POST':
-        form = QuestionForm(request.POST)
-        if form.is_valid():
-            question = form.save(commit=False)
-            question.create_date = timezone.now()
-            question.save()
-            return redirect('polls:index2')
-    else:
-        form = QuestionForm()
-    context = {'form': form}
-    return render(request, 'polls/question_form.html', context)
-
-
+    
 
 
 
@@ -129,6 +83,7 @@ class Info_View(View):
             NAME = []
             X = []
             Y = []
+           
             for acmd in search_result:
                 NAME.append(acmd.room_name)
                 X.append(acmd.latitude)
@@ -139,7 +94,7 @@ class Info_View(View):
 
         return render(request , 'info/searching.html')
 
-    # 숙소의 자세한 정보 
+    # 숙소의 자세한 정보
     def detail(self, request , Accomodation_id  = 3):
         acmd = get_object_or_404(Accomodation, pk=Accomodation_id)
         return render(request, 'info/detail.html', {'acmd': acmd})
@@ -147,4 +102,82 @@ class Info_View(View):
     # 매핑 렌더링
     def map(self, request):
         return render(request, 'info/map.html')
+
+
+# 회원가입
+def signup(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('base')
+    else:
+        form = UserForm()
+    return render(request, 'info/signup.html', {'form': form})
+
+
+#게시판
+def index2(request):
+    """
+    게시글 목록 출력
+    """
+    page = request.GET.get('page','1')
+    question_list = Question.objects.order_by('-create_date')
+    paginator = Paginator(question_list, 10)
+    page_obj = paginator.get_page(page)
+    context = {'question_list': page_obj}
+    return render(request, 'info/question_list.html', context)
+
+
+def detail2(request, question_id):
+    """
+    게시글 내용 출력
+    """
+    question = get_object_or_404(Question, pk=question_id)
+    context = {'question': question}
+    return render(request, 'info/question_detail.html', context)
+
+@login_required(login_url='polls:login')   #로그인 필수 함수
+def question_create(request):
+    """
+    게시판 질문등록
+    """
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.author = request.user
+            question.create_date = timezone.now()
+            question.save()
+            return redirect('polls:question_list')
+    else:
+        form = QuestionForm()
+    context = {'form': form}
+    return render(request, 'info/question_form.html', context)
+
+@login_required(login_url='polls:login')  #로그인 필수 함수
+def answer_create(request, question_id):
+    """
+    게시글 답변등록
+    """
+    question = get_object_or_404(Question, pk=question_id)
+    # ---------------------------------- [edit] ---------------------------------- #
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.author = request.user  # 추가한 속성 author 적용
+            answer.create_date = timezone.now()
+            answer.question = question
+            answer.save()
+            return redirect('polls:question_detail', question_id=question.id)
+    else:
+        form = AnswerForm()
+    context = {'question': question, 'form': form}
+    return render(request, 'info/question_detail.html', context)
+
 

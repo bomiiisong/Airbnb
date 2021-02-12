@@ -1,25 +1,86 @@
 
 {% extends "base.html" %}
 
+
 {% block sidebar %}
 <div id = "content_left" style = "border: 1px 
     solid blue; padding: 10px;  float: left; width: 80%" >
-    사이드바 예시    
+
 </div>
 {% endblock%}
 
 {% block content %}
-<div id = "content_left" style = "border: 1px solid blue; padding: 10px;  float: left; width: 47%" >
+{% load static %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/carousel.css' %}" rel="stylesheet"> 
+
+
+    <div class = "container-fluid" style="margin-left: 20px; margin-top : 40px">
+        <div class="col-4 style=float: left;"> 
+          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style = "width: 100%; height: 100%; float: left;">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <svg class="bd-placeholder-img" width="50%" height="50%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"> 
+                <rect width="100%" height="100%" fill="#777"/>   
+              </svg>
+              <img src = {{acmd.image_link}} style = "width: 60%; height:100%">
+            </div>
+      
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="50%" height="50%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+              <img src = {{acmd.img_link_3}} style = "width: 60%; height:100%">
+            </div>
+            
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="50%" height="50%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+              <img src = {{acmd.img_link_4}}  style = "width: 60%; height:100%">
+            </div>
+          </div>
+      
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="col-4" style="float:left; margin-left: 5px;"> 
+        <div class="card" style = "border-width: 1px; border-color:rgb(60, 104, 185); height: 507px;"> 
+          <div style = "margin-left: 15px; margin-right: 15px; margin-top: 25px; margin-bottom: 25px;">
+          <br>
+          <h5 class ="card-title" style = "color: rgb(9, 0, 10); font-size: 250%;"> <strong> {{acmd}} </strong> </h5>  
+          <br>
+           <p class="card-text" style="font-size: 170%">{{acmd.location}} </p>  
+          <br>
+      
+          <div style="font-size : 150%;">
+            {{acmd.owner_comment}} 
+          </div>
+      
+        </div>
+        <br>
+          <br>
+        
+          </div> </div> 
+        
+        </div>
+      
+        <script src="{% static 'css/bootstrap.bundle.min.js' %}"></script>
     
-    {{acmd}}
 
-    <br>
+      
+      
+          
 
-    {{acmd.location}}
-    <br>
-    {{acmd.limk}}
-    <br>
-    <img src= {{acmd.image_link}} alt="Image">
 
  {% endblock %}
 
