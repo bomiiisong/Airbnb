@@ -47,11 +47,30 @@ def save_Map(NAME, Y, X):
         map_searching.save('polls/templates/info/map.html')
         return 
 
+    if len(NAME) == 1:
+        map_searching = folium.Map(location = [Y[0] , X[0]] , zoom_start = 15)
+        folium.Marker((Y[0],X[0]) , radius = 10 , color = "red" , popup = NAME[0]).add_to(map_searching)
+        map_searching.save('polls/templates/info/map.html')
+        return
+
     df = pd.DataFrame({"X" : X , "Y" : Y})
     df["X"] = pd.to_numeric(df["X"])
     df["Y"] = pd.to_numeric(df["Y"])
-    map_searching = folium.Map(location = [df["Y"].mean() , df["X"].mean()], zoom_start = 13)
+    zoom = 12
 
+    dist_var = math.sqrt(df["Y"].var()*1000*df["Y"].var()*1000 +  df["X"].var()*1000* df["X"].var()*1000)
+    if dist_var < 0.1 : zoom = 15
+    elif dist_var < 1 : zoom = 14
+    elif dist_var < 5 : zoom = 13
+    elif dist_var < 12: zoom = 12
+    elif dist_var < 40 : zoom = 11
+    elif dist_var < 250: zoom = 10
+    elif dist_var < 700 : zoom = 9
+    elif dist_var < 1300 : zoom = 8
+    else: zoom = 7
+    print("x분산 : {} , y 분산 : {}  , 분산 합 : {} , zoom : {}".format(df["Y"].var()*1000 ,  df["X"].var()*1000, dist_var ,   zoom ))
+    
+    map_searching = folium.Map(location = [df["Y"].mean() , df["X"].mean()], zoom_start = zoom)
     for i in range(len(NAME)):
         folium.Marker((Y[i],X[i]) , radius = 10 , color = "red" , popup = NAME[i]).add_to(map_searching)
     map_searching.save('polls/templates/info/map.html')
@@ -98,6 +117,7 @@ class Info_View(View):
     # 숙소의 자세한 정보
     def detail(self, request , Accomodation_id  = 3):
         acmd = get_object_or_404(Accomodation, pk=Accomodation_id)
+        save_Map([acmd.room_name] , [acmd.latitude] , [acmd.longitude] )
         return render(request, 'info/detail.html', {'acmd': acmd})
 
     # 매핑 렌더링
