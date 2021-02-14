@@ -1,6 +1,7 @@
 from django.contrib import admin
 from polls.models import Accomodation
 from polls.models import Room_detail
+from polls.models import Review
 from polls.models import Question
 from polls.models import Answer
 
@@ -8,5 +9,6 @@ from polls.models import Answer
 
 admin.site.register(Accomodation)
 admin.site.register(Question)
+admin.site.register(Review)
 admin.site.register(Room_detail)
 admin.site.register(Answer)

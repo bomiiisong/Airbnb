@@ -212,6 +212,21 @@ padding-top: 0px; padding-bottom: 20px; padding-left : 10px; padding-right: 10px
   </div>
   {% endif %}
 <hr class="featurette-divider">
+
+{% for review in review_lst %}
+<div style = "font-size : 125%; font-weight : 700;">
+{{review.reviewer}}
+</div>
+<div style = "margin-top:8px;">
+  <span class="badge bg-warning">{{review.review_rating}}</span>
+ &nbsp {{review.review_data}}
+</div>
+<div style = "margin-top:15px" >
+  {{review.review_content}}
+    </div>
+<hr class="featurette-divider">
+{% endfor %}
+
 </div>
 
 
@@ -232,7 +247,6 @@ padding-top: 0px; padding-bottom: 20px; padding-left : 10px; padding-right: 10px
   이용할 수 있는 객실이 없습니다
   <hr class="featurette-divider">
   </div>
-
 
 
 {% else %}

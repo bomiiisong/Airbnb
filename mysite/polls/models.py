@@ -66,6 +66,25 @@ class Room_detail(models.Model):
         if list[2] != " " : self.room_prices = list[2]
         if list[3] != " " : self.room_img = list[3]
 
+# 리뷰 테이블
+class Review(models.Model):
+    room_id = models.ForeignKey('Accomodation', on_delete=models.CASCADE, db_column='roomID')
+    reviewer = models.TextField(null=True , blank = True)
+    review_content = models.TextField(null=True , blank = True)
+    review_rating = models.FloatField(null=True , blank = True)
+    review_data = models.TextField(null=True , blank = True)
+
+    def __str__(self):
+        return self.reviewer
+
+    def update(self , list):
+        self.room_id = Accomodation.objects.all().filter(roomID = list[0])[0]
+        self.reviewer = list[1]
+        self.review_content = list[2]
+        self.review_rating = list[3]
+        self.review_data = list[4]
+
+
 
 #게시판 데이터
 class Question(models.Model):
@@ -82,3 +101,5 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.TextField()
     create_date = models.DateTimeField()
+
+

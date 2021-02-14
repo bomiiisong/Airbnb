@@ -11,6 +11,7 @@ from django.db.models import Q, Count
 from django.utils import timezone
 from polls.models import Accomodation
 from polls.models import Room_detail
+from polls.models import Review
 from django.contrib.auth import authenticate, login
 from polls.forms import UserForm
 from .forms import QuestionForm, AnswerForm
@@ -119,9 +120,9 @@ class Info_View(View):
     def detail(self, request , Accomodation_id):
         acmd = get_object_or_404(Accomodation, pk=Accomodation_id)
         room_detail_lst = Room_detail.objects.all().filter(room_id = acmd)
-        print(acmd , room_detail_lst)
+        review_lst = Review.objects.all().filter(room_id = acmd)
         save_Map([acmd.room_name] , [acmd.latitude] , [acmd.longitude] )
-        return render(request, 'info/detail.html', {'acmd': acmd , 'room_detail_lst' : room_detail_lst })
+        return render(request, 'info/detail.html', {'acmd': acmd , 'room_detail_lst' : room_detail_lst  , "review_lst" : review_lst})
 
     # 매핑 렌더링
     def map(self, request):
