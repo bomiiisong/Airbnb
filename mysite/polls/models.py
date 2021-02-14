@@ -23,8 +23,6 @@ class Accomodation(models.Model):
     img_link_4 = models.URLField(null=True , blank = True)
     img_link_5 = models.URLField(null=True , blank = True)
     
-    
-    
     def __str__(self):
         return self.room_name
 
@@ -48,6 +46,25 @@ class Accomodation(models.Model):
         self.img_link_5 = list[16]
        # if list[16] != " ": self.owner_comment = list[16]
 
+
+# 방에 대한 데이터 테이블
+class Room_detail(models.Model):
+    
+    room_id = models.ForeignKey('Accomodation', on_delete=models.CASCADE, db_column='roomID')
+    room_types = models.TextField(null=True , blank = True)
+    room_prices = models.IntegerField(null=True , blank = True)
+    room_img = models.URLField(null=True , blank = True)
+
+    def __str__(self):
+        if self.room_types == None : return ("전체 매진")
+        elif self.room_prices == None : return ("매진")
+        else:  return self.room_types
+
+    def update(self , list):
+        self.room_id = Accomodation.objects.all().filter(roomID = list[0])[0]
+        if list[1] != " " : self.room_types = list[1]
+        if list[2] != " " : self.room_prices = list[2]
+        if list[3] != " " : self.room_img = list[3]
 
 
 #게시판 데이터
