@@ -96,6 +96,11 @@ class Question(models.Model):
     def __str__(self):
         return self.subject
 
+    def update(self , list):
+        self.author = list[0]
+        self.subject = list[1]
+        self.content = list[2]
+
 class Answer(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)

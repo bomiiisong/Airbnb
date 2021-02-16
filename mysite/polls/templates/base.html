@@ -81,7 +81,86 @@
 
     <div id = content >
         {% block content  %}
-        <img src = "https://cdn.pixabay.com/photo/2019/12/02/14/46/paragliding-4667879_960_720.jpg">
+        <img src = "https://cdn.pixabay.com/photo/2019/12/07/19/20/city-4679928_960_720.png" style="display: block; margin: 0px auto; width:70%;">
+
+        <div class="row" style="padding:3%;">
+         <!-- 1행 만들어서 양쪽에 5%패딩주기-->
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <!-- 1열 만들어서 카드형식으로 만들기, 넓이 맞추고 오른쪽 패딩주어서 조금 띄움 -->
+            <a class="_seoul" href="http://localhost:8000/polls/info/searching/?search_keyword=서울" style="display: inline-block; height:100%; width: 100%;">
+                <!-- 링크를 최상위로 놓고 그 밑에 그림과 글을 가운데정렬해서 넣는 방식-->
+                <img src="https://a0.muscache.com/im/pictures/71e23854-a3c7-491c-b715-6e86233a293f.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>서울</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+         <!--밑에 클래스 생성하면 그대로 열이 계속 생김-->
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_gyeonggi" href="http://localhost:8000/polls/info/searching/?search_keyword=경기" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>경기</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_incheon" href="http://localhost:8000/polls/info/searching/?search_keyword=인천" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/8340bd19-ee32-4669-8b10-a8ac7e7735d4.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>인천</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_busan" href="http://localhost:8000/polls/info/searching/?search_keyword=부산" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/4d16bc36-04b2-4afb-b2de-aaefed78ad85.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>부산</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_daegu" href="http://localhost:8000/polls/info/searching/?search_keyword=대구" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/bd549da5-ecdd-4642-9a4c-4943c9c8cf28.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>대구</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_daejeon" href="http://localhost:8000/polls/info/searching/?search_keyword=대전" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>대전</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_gwangju" href="http://localhost:8000/polls/info/searching/?search_keyword=광주" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/f7736f4a-f8b9-4527-b46c-d0d8df856984.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>광주</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        <div class="region_card" style="border: 0px; width:12.5%; padding-right:1%;">
+            <a class="_jeju" href="http://localhost:8000/polls/info/searching/?search_keyword=제주" style="display: inline-block; height:100%; width: 100%;">
+                <img src="https://a0.muscache.com/im/pictures/560c06e1-a396-4414-9e38-4fbe8e9f04c4.jpg?im_q=medq&im_w=720" style="display: inline-block; vertical-align: top; height:70%; width: 100%; padding-bottom: 10%;min-height: 1px;">
+                <div class="card=body">
+                    <h5 class="card-title" style="text-align: center; color:black;"><b>제주</b></h5>
+                    <p class="card-text" style="text-align: center; color:black;"></p>
+                </div>
+            </a>
+        </div>
+        </div>
         {% endblock %}
 
     </div>
