@@ -29,7 +29,7 @@
     </style>
 
     <!-- Custom styles for this template -->
-    
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -38,28 +38,28 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; margin-top:0px; z-index:2;  width: 100%; height : 10%; " > 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; margin-top:0px; z-index:2;  width: 100%; height : 10%; " >
 
-        <a class="navbar-brand" href="{% url 'polls:base' %}" style="font-size: 200%; margin-right: 20px;"> <strong> Airbnb </strong></a> 
-      
+        <a class="navbar-brand" href="{% url 'polls:base' %}" style="font-size: 200%; margin-right: 20px;"> <strong> Airbnb </strong></a>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav mr-auto">
           <li class="nav-item active"> <a class="nav-link" href= "{% url 'polls:base' %}" style = "margin-right: 15px;">홈<span class="sr-only">(current)</span></a> </li>
           <!---------------------------------bomi edit----------------------------------->
             <li class="nav-item"> <a class="nav-link" href="{% url 'polls:question_list' %}"  style = "margin-right: 20px;">게시판</a></li>
             <li class="nav-item active">
               {% if user.is_authenticated %}
-                <a class="nav-link" href="{% url 'polls:logout' %}">LOGOUT</a>
+                <a class="nav-link" href="{% url 'polls:logout' %}">로그아웃</a>
               {% else %}
-              <a class="nav-link" href= "{% url 'polls:login' %}" style = "margin-right: 15px;">LOGIN<span class="sr-only"></span></a>
+              <a class="nav-link" href= "{% url 'polls:login' %}" style = "margin-right: 15px;">로그인<span class="sr-only"></span></a>
               {% endif %}
           </li>
           <!-------------------------------------------------------------------------------->
             <li class="nav-item dropdown">
-          
+
               <form class="form-inline my-2 my-lg-0" autocomplete="off" action="{% url 'polls:Info_searching'%}?search_keyword={{search_keyword}}" method="get">
                 {% csrf_token %}
-                <input class="form-control mr-sm-2" type="text" name = "search_keyword" placeholder="Search" aria-label="Search"> 
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="text" name = "search_keyword" placeholder="검색" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
               </form>
             </li>
         </ul>
@@ -72,11 +72,11 @@
               <br>
               <br>
 
-  
 
 
 
-   
+
+
 
 
     <div id = content >
@@ -180,7 +180,7 @@
     <br>
     <br>
     <br>
-    
+
 
 
 </body>
